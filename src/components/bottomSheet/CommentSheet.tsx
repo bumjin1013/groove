@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet, View} from "react-native";
 import React, {useMemo} from "react";
 import {BottomSheetFlatList, BottomSheetModal, BottomSheetView} from "@gorhom/bottom-sheet";
 import {height} from "@/utils/dimensions";
@@ -22,6 +22,17 @@ const CommentSheet: React.FC<CommentSheetProps> = ({ref, commentSheetPosition, v
 
   const snapPoints = useMemo(() => ["50%"], []);
 
+  const memoziedFlatList = useMemo(() => {
+    return (
+      <BottomSheetFlatList
+        data={comments}
+        keyExtractor={(_, index) => index.toString()}
+        renderItem={({item}) => <Comment comment={item} />}
+        ListFooterComponent={() => <View style={styles.footer} />}
+      />
+    );
+  }, [comments]);
+
   return (
     <BottomSheetModal
       ref={ref}
@@ -33,10 +44,9 @@ const CommentSheet: React.FC<CommentSheetProps> = ({ref, commentSheetPosition, v
       enablePanDownToClose
       enableDynamicSizing={false}
       animatedPosition={commentSheetPosition}
-      onChange={(index) => setCommentSheetIndex(index)}>
-      <BottomSheetView style={styles.container}>
-        <BottomSheetFlatList data={comments} renderItem={({item}) => <Comment comment={item} />} keyExtractor={(_, index) => index.toString()} />
-      </BottomSheetView>
+      onChange={(index) => setCommentSheetIndex(index)}
+      enableOverDrag={false}>
+      <BottomSheetView style={styles.container}>{memoziedFlatList}</BottomSheetView>
       <CommentInput shortsId={id} />
     </BottomSheetModal>
   );
@@ -45,5 +55,6 @@ const CommentSheet: React.FC<CommentSheetProps> = ({ref, commentSheetPosition, v
 export default CommentSheet;
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: color.darkGray},
+  container: {backgroundColor: color.darkGray, flex: 1, flexGrow: 1},
+  footer: {height: 80},
 });

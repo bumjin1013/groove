@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {Pressable, StyleSheet, View} from "react-native";
+import {Pressable, StyleSheet, View, Dimensions} from "react-native";
 import Video, {OnProgressData} from "react-native-video";
-import {height} from "@/utils/dimensions";
-import Animated, {SharedValue, useAnimatedStyle, useDerivedValue} from "react-native-reanimated";
+import Animated, {SharedValue, useAnimatedStyle} from "react-native-reanimated";
 import {Comment, Short} from "@/types/short";
 import Subtitles from "react-native-subtitles";
 import {Buttons, Info} from "./components";
+
+const {height: screenHeight} = Dimensions.get("window");
 
 interface ShortsProps {
   data: Short;
@@ -33,14 +34,9 @@ const Shorts: React.FC<ShortsProps> = ({data, isFocused, commentSheetPosition, o
     setPaused((prev) => !prev);
   };
 
-  // 바텀시트 높이에 따라 비디오 높이 조절
-  const animatedHeight = useDerivedValue(() => {
-    return isFocused ? commentSheetPosition.value : height;
-  });
-
   const videoHeightStyle = useAnimatedStyle(() => ({
-    height: animatedHeight.value,
-    minHeight: height / 2,
+    height: commentSheetPosition.value,
+    minHeight: screenHeight / 2,
   }));
 
   const handleProgress = (progress: OnProgressData) => {
@@ -66,9 +62,9 @@ const Shorts: React.FC<ShortsProps> = ({data, isFocused, commentSheetPosition, o
 };
 
 const styles = StyleSheet.create({
-  container: {position: "relative", height: height},
+  container: {position: "relative", height: screenHeight, backgroundColor: "black"},
   videoContainer: {width: "100%"},
-  video: {height: "100%"},
+  video: {width: "100%", height: "100%"},
   subtitle: {color: "white", fontSize: 14},
   subtitleContainer: {width: "100%", justifyContent: "center", alignItems: "center"},
   overlay: {position: "absolute", bottom: 120, padding: 16},

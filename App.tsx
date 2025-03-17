@@ -1,17 +1,18 @@
-import React, {useEffect} from "react";
+import React from "react";
 import ShortsScreen from "./src/screens/ShortsScreen";
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 import {BottomSheetModalProvider} from "@gorhom/bottom-sheet";
-import {storage} from "./src/utils/mmkv";
-import {useDummyStore} from "./src/zustand/useDummyStore";
+import {SafeAreaProvider} from "react-native-safe-area-context";
 
 function App(): React.JSX.Element {
   return (
-    <GestureHandlerRootView>
-      <BottomSheetModalProvider>
-        <ShortsScreen />
-      </BottomSheetModalProvider>
-    </GestureHandlerRootView>
+    <SafeAreaProvider>
+      <GestureHandlerRootView>
+        <BottomSheetModalProvider>
+          <ShortsScreen />
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
+    </SafeAreaProvider>
   );
 }
 

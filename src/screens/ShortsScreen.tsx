@@ -25,7 +25,6 @@ const ShortsScreen = () => {
 
   const onPress = {
     like: useCallback((id: string) => {
-      console.log(id);
       updateLike(id);
     }, []),
     comment: useCallback(() => {
@@ -47,7 +46,9 @@ const ShortsScreen = () => {
         viewabilityConfig={{
           viewAreaCoveragePercentThreshold: 50,
         }}
-        initialNumToRender={5}
+        initialNumToRender={4}
+        maxToRenderPerBatch={10}
+        windowSize={5}
         scrollEnabled={commentSheetIndex === -1}
       />
 
@@ -65,6 +66,7 @@ const ShortsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "black",
   },
 });
 

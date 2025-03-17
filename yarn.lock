@@ -3377,17 +3377,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.7.7":
-  version: 1.8.3
-  resolution: "axios@npm:1.8.3"
-  dependencies:
-    follow-redirects: "npm:^1.15.6"
-    form-data: "npm:^4.0.0"
-    proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/de75da9859adf0a6481d4af2b687db357a054d20f0d69b99d502b71dae3578326b1fdc0951dabaef769827484941cda93d3f89150bf9e04f05f6615fb8316780
-  languageName: node
-  linkType: hard
-
 "babel-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "babel-jest@npm:29.7.0"
@@ -5246,7 +5235,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.6":
+"follow-redirects@npm:^1.14.9":
   version: 1.15.9
   resolution: "follow-redirects@npm:1.15.9"
   peerDependenciesMeta:
@@ -5584,14 +5573,14 @@ __metadata:
     react: "npm:19.0.0"
     react-native: "npm:0.78.0"
     react-native-gesture-handler: "npm:^2.24.0"
-    react-native-mmkv: "npm:2.2.0"
+    react-native-mmkv: "npm:^2.2.0"
     react-native-reanimated: "npm:^3.17.1"
+    react-native-safe-area-context: "npm:^5.3.0"
     react-native-subtitles: "npm:^5.0.5"
     react-native-svg: "npm:^15.11.2"
     react-native-svg-transformer: "npm:^1.5.0"
     react-native-video: "npm:^6.10.2"
     react-native-video-player: "npm:^0.16.2"
-    react-native-video-subtitle: "npm:^1.0.6"
     react-test-renderer: "npm:19.0.0"
     typescript: "npm:^5.8.2"
     zustand: "npm:^5.0.3"
@@ -8278,13 +8267,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proxy-from-env@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "proxy-from-env@npm:1.1.0"
-  checksum: 10c0/fe7dd8b1bdbbbea18d1459107729c3e4a2243ca870d26d34c2c1bcd3e4425b7bcc5112362df2d93cc7fb9746f6142b5e272fd1cc5c86ddf8580175186f6ad42b
-  languageName: node
-  linkType: hard
-
 "punycode@npm:^2.1.0":
   version: 2.3.1
   resolution: "punycode@npm:2.3.1"
@@ -8384,13 +8366,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-mmkv@npm:2.2.0":
-  version: 2.2.0
-  resolution: "react-native-mmkv@npm:2.2.0"
+"react-native-mmkv@npm:^2.2.0":
+  version: 2.12.2
+  resolution: "react-native-mmkv@npm:2.12.2"
   peerDependencies:
     react: "*"
-    react-native: "*"
-  checksum: 10c0/f739db84b7592a4ea398e3d13967aa7d43bac326ea37b88ada6854c1abdaf0d578671d89a41b1c0d638534fee448c7c37bc97d7a49323b55d90c13b080d9a908
+    react-native: ">=0.71.0"
+  checksum: 10c0/751b92d60b3526c9bbeac652b840c048b7f1cc4f48179f4e24a45cf14bdcdd08bfc7f3c65fb50c686cae41356ac0d15a21e6da034e2f0907459036dacb67fcbd
   languageName: node
   linkType: hard
 
@@ -8415,6 +8397,16 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10c0/da4f653a675816eb0b3502aa5029c21ec4ec8889bcbbbbc174d567db1c05d9529d638a22c2e4085bf5a97ad2e184988d64cfa9b77774cb32322f29ab4e6c2585
+  languageName: node
+  linkType: hard
+
+"react-native-safe-area-context@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "react-native-safe-area-context@npm:5.3.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 10c0/3732f85444342f58f17709ecbbcfe754a0ebda1030765e8df0ce80413e95fcb34ee7d5e83b4627fbf383c13eeb50554c244aff3d908734eab67807aa6ca23bb6
   languageName: node
   linkType: hard
 
@@ -8467,20 +8459,6 @@ __metadata:
     react-native: "*"
     react-native-video: ^6.8.0
   checksum: 10c0/65bcd051991380013c0b487591867dbd9b51756f089f0f9af4f5b2d246096eec979787f683498671defcf44925863e32786d216589af4a874b201d36d56051eb
-  languageName: node
-  linkType: hard
-
-"react-native-video-subtitle@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "react-native-video-subtitle@npm:1.0.6"
-  dependencies:
-    axios: "npm:^1.7.7"
-    srt-parser-2: "npm:^1.2.3"
-    vtt-to-json: "npm:^0.1.1"
-  peerDependencies:
-    react: 18.2.0
-    react-native: 0.73.1
-  checksum: 10c0/35109f5e6454d09275b8f15a3d42dd51e81ee868d7f19132723b2c307df0220d269ec58b2d2aaa13f4521f82ca8dc0150ae2c6366b74dc46b35e70844054651f
   languageName: node
   linkType: hard
 
@@ -9271,7 +9249,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"srt-parser-2@npm:^1.1.7, srt-parser-2@npm:^1.2.3":
+"srt-parser-2@npm:^1.1.7":
   version: 1.2.3
   resolution: "srt-parser-2@npm:1.2.3"
   bin:
