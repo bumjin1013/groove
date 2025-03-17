@@ -1,22 +1,28 @@
 import {Pressable, StyleSheet, Text} from "react-native";
-import {Eye, Heart, Message, Share} from "@/assets/svgs";
+import {Eye, Heart, HeartFill, Message, Share} from "@/assets/svgs";
 import Animated, {AnimatedStyle} from "react-native-reanimated";
-import {Short} from "@/types/short";
+import {Comment, Short} from "@/types/short";
 
 interface ButtonsProps {
-  showCommentSheet: () => void;
   buttonOpacity: AnimatedStyle;
   data: Short;
+
+  onPress: {
+    like: (id: string) => void;
+    comment: (comment: Comment[]) => void;
+    share: () => void;
+    view: () => void;
+  };
 }
 
-const Buttons: React.FC<ButtonsProps> = ({showCommentSheet, buttonOpacity, data}) => {
-  const {views, likes, comments, shares} = data;
+const Buttons: React.FC<ButtonsProps> = ({buttonOpacity, data, onPress}) => {
+  const {views, likes, comments, shares, isLiked, id} = data;
 
   const buttons = [
-    {Icon: Heart, text: "Like", onPress: () => {}, label: "좋아요", value: likes},
-    {Icon: Message, text: "Comment", onPress: showCommentSheet, label: "댓글", value: comments.length},
-    {Icon: Share, text: "Share", onPress: () => {}, label: "공유", value: shares},
-    {Icon: Eye, text: "View", onPress: () => {}, label: "조회수", value: views},
+    {Icon: isLiked ? HeartFill : Heart, text: "Like", onPress: () => onPress.like(id), value: likes},
+    {Icon: Message, text: "Comment", onPress: () => onPress.comment(comments), value: comments.length},
+    {Icon: Share, text: "Share", onPress: onPress.share, value: shares},
+    {Icon: Eye, text: "View", onPress: onPress.view, value: views},
   ];
 
   return (

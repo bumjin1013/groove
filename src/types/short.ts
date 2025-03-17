@@ -15,6 +15,7 @@ export interface Short {
   shares: number;
   publishedAt: Date;
   comments: Comment[];
+  isLiked: boolean;
 }
 
 export interface Author {

@@ -3,16 +3,21 @@ import React, {useState} from "react";
 import {Pressable} from "react-native-gesture-handler";
 import {BottomSheetTextInput} from "@gorhom/bottom-sheet";
 import {color} from "@/utils/colors";
-import {useCommentStore} from "@/zustand/useCommentStore";
+import {useShortsStore} from "@/zustand/useShortsStore";
 
-const CommentInput = () => {
-  const {addComment} = useCommentStore();
+interface CommentInputProps {
+  shortsId: string;
+}
+
+const CommentInput: React.FC<CommentInputProps> = ({shortsId}) => {
+  const {addComment} = useShortsStore();
 
   const [input, setInput] = useState("");
 
   const onPressSubmit = () => {
     if (input) {
-      addComment({id: "c040", author: "나", content: input, createdAt: new Date().toISOString()});
+      let body = {id: "c040", author: "나", content: input, createdAt: new Date().toISOString()};
+      addComment({shortsId, body});
       setInput("");
       Keyboard.dismiss();
     }
