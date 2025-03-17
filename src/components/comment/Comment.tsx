@@ -10,7 +10,7 @@ interface CommentProps {
 }
 
 const Comment: React.FC<CommentProps> = ({comment}) => {
-  const {id, author, content, createdAt} = comment;
+  const {author, content, createdAt} = comment;
 
   return (
     <View style={styles.container}>

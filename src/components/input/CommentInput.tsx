@@ -16,7 +16,7 @@ const CommentInput: React.FC<CommentInputProps> = ({shortsId}) => {
 
   const onPressSubmit = () => {
     if (input) {
-      let body = {id: "c040", author: "나", content: input, createdAt: new Date().toISOString()};
+      let body = {id: "c040", author: "나", content: input, createdAt: new Date()};
       addComment({shortsId, body});
       setInput("");
       Keyboard.dismiss();

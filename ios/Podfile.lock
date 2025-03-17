@@ -8,6 +8,9 @@ PODS:
   - hermes-engine (0.78.0):
     - hermes-engine/Pre-built (= 0.78.0)
   - hermes-engine/Pre-built (0.78.0)
+  - MMKV (2.0.2):
+    - MMKVCore (~> 2.0.2)
+  - MMKVCore (2.0.2)
   - RCT-Folly (2024.11.18.00):
     - boost
     - DoubleConversion
@@ -1238,27 +1241,9 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
-  - react-native-mmkv (3.2.0):
-    - DoubleConversion
-    - glog
-    - hermes-engine
-    - RCT-Folly (= 2024.11.18.00)
-    - RCTRequired
-    - RCTTypeSafety
+  - react-native-mmkv (2.2.0):
+    - MMKV
     - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - Yoga
   - react-native-video (6.10.2):
     - DoubleConversion
     - glog
@@ -1281,27 +1266,6 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-video/Fabric (6.10.2):
-    - DoubleConversion
-    - glog
-    - hermes-engine
-    - RCT-Folly (= 2024.11.18.00)
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - Yoga
   - react-native-video/Video (6.10.2):
     - DoubleConversion
     - glog
@@ -1315,7 +1279,6 @@ PODS:
     - React-featureflags
     - React-graphics
     - React-ImageManager
-    - react-native-video/Fabric
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -1752,48 +1715,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - Yoga
   - RNSVG (15.11.2):
-    - DoubleConversion
-    - glog
-    - hermes-engine
-    - RCT-Folly (= 2024.11.18.00)
-    - RCTRequired
-    - RCTTypeSafety
     - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - RNSVG/common (= 15.11.2)
-    - Yoga
-  - RNSVG/common (15.11.2):
-    - DoubleConversion
-    - glog
-    - hermes-engine
-    - RCT-Folly (= 2024.11.18.00)
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - Yoga
   - SocketRocket (0.7.1)
   - Yoga (0.0.0)
 
@@ -1874,6 +1796,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - MMKV
+    - MMKVCore
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -2029,6 +1953,8 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: eb93e2f488219332457c3c4eafd2738ddc7e80b8
   hermes-engine: b417d2b2aee3b89b58e63e23a51e02be91dc876d
+  MMKV: 3eacda84cd1c4fc95cf848d3ecb69d85ed56006c
+  MMKVCore: 508b4d3a8ce031f1b5c8bd235f0517fb3f4c73a9
   RCT-Folly: 36fe2295e44b10d831836cc0d1daec5f8abcf809
   RCTDeprecation: b2eecf2d60216df56bc5e6be5f063826d3c1ee35
   RCTRequired: 78522de7dc73b81f3ed7890d145fa341f5bb32ea
@@ -2059,17 +1985,17 @@ SPEC CHECKSUMS:
   React-logger: 795cd5055782db394f187f9db0477d4b25b44291
   React-Mapbuffer: 0502faf46cab8fb89cfc7bf3e6c6109b6ef9b5de
   React-microtasksnativemodule: 663bc64e3a96c5fc91081923ae7481adc1359a78
-  react-native-mmkv: 55e8a074ae9cb919609755d7271c16b242c2603f
-  react-native-video: 1084a53916b9c08e41be73efbd29dd038f32edbf
+  react-native-mmkv: 2a15aadabf649c364cab7975eef52848611eea25
+  react-native-video: 34561613581c8d2a7edadce9ccf8ea9a5d9aad70
   React-NativeModulesApple: 16fbd5b040ff6c492dacc361d49e63cba7a6a7a1
   React-perflogger: ab51b7592532a0ea45bf6eed7e6cae14a368b678
   React-performancetimeline: bc2e48198ec814d578ac8401f65d78a574358203
   React-RCTActionSheet: 592674cf61142497e0e820688f5a696e41bf16dd
   React-RCTAnimation: 8fbb8dba757b49c78f4db403133ab6399a4ce952
-  React-RCTAppDelegate: 7f88baa8cb4e5d6c38bb4d84339925c70c9ac864
+  React-RCTAppDelegate: 346f71ef725906ba8fac77c2fe9c6c9b89d09c96
   React-RCTBlob: f89b162d0fe6b570a18e755eb16cbe356d3c6d17
-  React-RCTFabric: 8ad6d875abe6e87312cef90e4b15ef7f6bed72e6
-  React-RCTFBReactNativeSpec: 8c29630c2f379c729300e4c1e540f3d1b78d1936
+  React-RCTFabric: ae3cfd54caf162df6224c841466e4c1220f82b2b
+  React-RCTFBReactNativeSpec: ce1d60e8eae94c0adaa9acae24d26149c7fe181e
   React-RCTImage: ccac9969940f170503857733f9a5f63578e106e1
   React-RCTLinking: d82427bbf18415a3732105383dff119131cadd90
   React-RCTNetwork: 12ad4d0fbde939e00251ca5ca890da2e6825cc3c
@@ -2089,12 +2015,12 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: f2e81d80afd71a8058589e19d8a134243fa53f17
   ReactCodegen: a63a0ab6ae824aef2e8c744981edd718b16eb9f2
   ReactCommon: 3d39389f8e2a2157d5c999f8fba57bd1c8f226f0
-  RNGestureHandler: 9b05fab9a0b48fe48c968de7dbb9ca38a2b4f7ab
-  RNReanimated: ff71ce0443c71c8a77501ace7b9738ede83cfa55
-  RNSVG: 8588ee1ca9b2e6fd2c99466e35b3db0e9f81bb40
+  RNGestureHandler: ebb08ce5dfc9caff34ae9cda3ef0d18daae3a7ef
+  RNReanimated: f9bc911c24a63fc17e721302e1bca07fdedd9241
+  RNSVG: 0358054e792868e3aee3cf1790ed39881fa26565
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: afd04ff05ebe0121a00c468a8a3c8080221cb14c
 
-PODFILE CHECKSUM: 4ec38b299b81c8ee9a3bc34e4d80d45f4c5f3977
+PODFILE CHECKSUM: e79b85d968d55a020d1c588e5fa276521be45853
 
 COCOAPODS: 1.16.2

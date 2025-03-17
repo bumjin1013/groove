@@ -14,12 +14,10 @@ interface ShortsStore {
 export const useShortsStore = create<ShortsStore>()(
   persist(
     (set, get) => ({
-      data: [],
+      data: shortsData,
       setData: (data) => set(() => ({data})),
       updateLike: (shortsId) =>
         set((state) => {
-          console.log("👍 Toggling like for:", shortsId);
-
           return {
             data: state.data.map((item) => {
               if (item.id === shortsId) {
@@ -29,14 +27,12 @@ export const useShortsStore = create<ShortsStore>()(
                   isLiked: !item.isLiked,
                   likes: item.isLiked ? item.likes - 1 : item.likes + 1,
                 };
-                console.log("✅ After:", updatedItem.isLiked, "Likes:", updatedItem.likes);
                 return updatedItem;
               }
               return item;
             }),
           };
         }),
-
       addComment: ({shortsId, body}) =>
         set((state) => {
           return {
@@ -57,7 +53,6 @@ export const useShortsStore = create<ShortsStore>()(
       storage: {
         getItem: (key) => {
           const value = storage.getString(key);
-
           return value ? JSON.parse(value) : shortsData;
         },
         setItem: (key, value) => {

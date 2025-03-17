@@ -1,11 +1,11 @@
 import React, {useCallback, useRef, useState} from "react";
 import {FlatList, StyleSheet, View} from "react-native";
-import Shorts from "@/components/shorts";
 import CommentSheet from "@/components/bottomSheet/CommentSheet";
 import {BottomSheetModal} from "@gorhom/bottom-sheet";
 import {useSharedValue} from "react-native-reanimated";
 import {height} from "@/utils/dimensions";
 import {useShortsStore} from "@/zustand/useShortsStore";
+import Shorts from "@/components/shorts/Shorts";
 
 const ShortsScreen = () => {
   const commentSheetRef = useRef<BottomSheetModal>(null);

@@ -1,15 +1,15 @@
 import {StyleSheet} from "react-native";
-import React from "react";
+import React, {useMemo} from "react";
 import {BottomSheetFlatList, BottomSheetModal, BottomSheetView} from "@gorhom/bottom-sheet";
 import {height} from "@/utils/dimensions";
 import {color} from "@/utils/colors";
-import Comment from "../comment";
 import {SharedValue} from "react-native-reanimated";
 import CommentInput from "../input/CommentInput";
 import {useShortsStore} from "@/zustand/useShortsStore";
+import Comment from "../comment/Comment";
 
 interface CommentSheetProps {
-  ref: React.RefObject<BottomSheetModal>;
+  ref: React.RefObject<BottomSheetModal | null>;
   commentSheetPosition: SharedValue<number>;
   commentSheetIndex: number;
   viewableIndex: number;
@@ -20,7 +20,7 @@ const CommentSheet: React.FC<CommentSheetProps> = ({ref, commentSheetPosition, v
   const {data} = useShortsStore();
   const {comments = [], id} = data[viewableIndex];
 
-  const snapPoints = ["50%"];
+  const snapPoints = useMemo(() => ["50%"], []);
 
   return (
     <BottomSheetModal
@@ -35,7 +35,7 @@ const CommentSheet: React.FC<CommentSheetProps> = ({ref, commentSheetPosition, v
       animatedPosition={commentSheetPosition}
       onChange={(index) => setCommentSheetIndex(index)}>
       <BottomSheetView style={styles.container}>
-        <BottomSheetFlatList data={comments} renderItem={({item}) => <Comment comment={item} />} keyExtractor={(_, index) => index.toString()} style={{}} />
+        <BottomSheetFlatList data={comments} renderItem={({item}) => <Comment comment={item} />} keyExtractor={(_, index) => index.toString()} />
       </BottomSheetView>
       <CommentInput shortsId={id} />
     </BottomSheetModal>
