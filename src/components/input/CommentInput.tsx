@@ -1,6 +1,6 @@
-import {Keyboard, StyleSheet, Text, View} from "react-native";
+import {Keyboard, Platform, StyleSheet, Text, View} from "react-native";
 import React, {useState} from "react";
-import {Pressable} from "react-native-gesture-handler";
+import {Pressable, TextInput} from "react-native-gesture-handler";
 import {BottomSheetTextInput} from "@gorhom/bottom-sheet";
 import {color} from "@/utils/colors";
 import {useShortsStore} from "@/zustand/useShortsStore";
@@ -25,9 +25,11 @@ const CommentInput: React.FC<CommentInputProps> = ({shortsId}) => {
     }
   };
 
+  const InputComponent = Platform.OS === "ios" ? BottomSheetTextInput : TextInput;
+
   return (
-    <View style={[styles.container, {paddingBottom: bottom || 20}]}>
-      <BottomSheetTextInput value={input} onChangeText={setInput} style={styles.input} placeholder="댓글을 입력하세요" placeholderTextColor={color.lightGray} />
+    <View style={[styles.container, {paddingBottom: bottom || 16}]}>
+      <InputComponent value={input} onChangeText={setInput} style={styles.input} placeholder="댓글을 입력하세요" placeholderTextColor={color.lightGray} />
       <Pressable style={[styles.submit, {backgroundColor: input ? color.blue : color.gray}]} onPress={onPressSubmit} disabled={!input}>
         <Text style={[styles.submitText, {color: input ? color.white : color.lightGray}]}>등록</Text>
       </Pressable>

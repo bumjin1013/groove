@@ -45,7 +45,8 @@ const CommentSheet: React.FC<CommentSheetProps> = ({ref, commentSheetPosition, v
       enableDynamicSizing={false}
       animatedPosition={commentSheetPosition}
       onChange={(index) => setCommentSheetIndex(index)}
-      enableOverDrag={false}>
+      enableOverDrag={false}
+      keyboardBehavior="interactive">
       <BottomSheetView style={styles.container}>{memoziedFlatList}</BottomSheetView>
       <CommentInput shortsId={id} />
     </BottomSheetModal>

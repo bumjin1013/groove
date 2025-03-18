@@ -47,7 +47,9 @@ const Shorts: React.FC<ShortsProps> = ({data, isFocused, commentSheetPosition, o
     <View style={styles.container}>
       <Pressable onPress={togglePlay}>
         <Animated.View style={[styles.videoContainer, videoHeightStyle]}>
-          <Video source={{uri: url}} style={styles.video} controls={false} resizeMode="contain" paused={paused} onProgress={handleProgress} repeat />
+          <View>
+            <Video source={{uri: url}} style={styles.video} controls={false} resizeMode="contain" paused={paused} onProgress={handleProgress} repeat viewType={0} />
+          </View>
         </Animated.View>
       </Pressable>
       <View style={styles.overlay}>
